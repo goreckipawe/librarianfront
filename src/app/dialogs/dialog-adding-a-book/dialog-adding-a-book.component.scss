@@ -1,0 +1,12 @@
+.entered_data {
+    margin-top: -15px; 
+    width: 100%;
+}
+
+.h3_entered_data {
+    margin-top: 15px; 
+}
+
+:host ::ng-deep .multiselect-dropdown .dropdown-btn {
+    width: 96% !important;
+}

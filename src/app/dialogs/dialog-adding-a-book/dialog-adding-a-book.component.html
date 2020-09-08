@@ -1,0 +1,27 @@
+<!--prosty wygląd nic nadzwyczajnego niestety nie miałem czasu na lepsze efekty, a szkkoda bo pobawiłbym się z animacjami :(-->
+<h1 mat-dialog-title style="height: 10%;">Adding a book</h1>
+<div mat-dialog-content style="height: 80%;">
+  <h3 mat-dialog-title>Title</h3>
+  <mat-form-field class="entered_data">
+    <input matInput placeholder="Enter the name of the book" [(ngModel)]="title">
+  </mat-form-field>
+  <h3 mat-dialog-title class="h3_entered_data">Description</h3>
+  <mat-form-field class="entered_data">
+    <textarea matInput placeholder="Enter a description of the book" [(ngModel)]="description">{{description}}</textarea>
+  </mat-form-field>
+  <h3 mat-dialog-title class="h3_entered_data">Select a book category</h3>
+  <div>
+    <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [settings]="dropdownSettings" [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)" (onDeSelect)="onItemDeSelect($event)"></ng-multiselect-dropdown>
+  </div>
+  <h3 mat-dialog-title class="h3_entered_data">Date added to collection</h3>
+  <mat-form-field appearance="legacy" class="entered_data">
+    <mat-label>Select the date of adding to the collection</mat-label>
+    <input matInput [matDatepicker]="picker" (dateChange)="dateChange($event)" [(ngModel)]="date_of_creation">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions style="height: 10%; float: right;">
+  <button mat-button [mat-dialog-close]="data" (click)="saveChanges()" style="background-color: green; color: white" cdkFocusInitial>Save changes</button>
+  <button mat-button (click)="closeDialog()" style="background-color: red; color: white">Close</button>
+</div>

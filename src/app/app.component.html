@@ -1,0 +1,12 @@
+<!--również prosty wygląd z templatki uznałem że to wystarczy do tego projektu po prostu wyłączyłem menu boczne-->
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation">
+    <app-header-sidenav-list (sidenavClose)="sidenav.close()"></app-header-sidenav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

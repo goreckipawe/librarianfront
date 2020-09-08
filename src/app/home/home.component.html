@@ -1,0 +1,45 @@
+<!--tak jak wspomniałem w innych komponętach tabelka nie powala, ale nie miał to byc abitny projekt więc użyłem prostego wyglądu-->
+<div class="" style="width: 100%; margin-bottom: 20px;">
+  <button mat-raised-button style="float: right; margin-bottom: 20px; margin-right: 20px; background-color: green;" color="primary" (click)="adding_book()">Add a book</button>
+</div>
+<div class="">
+    <table mat-table [dataSource]="books">
+  
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="date_of_creation">
+        <th mat-header-cell *matHeaderCellDef> Date added to collection </th>
+        <td mat-cell *matCellDef="let element"> {{element.date_of_creation}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="year_of_publishment">
+        <th mat-header-cell *matHeaderCellDef> Year of publication </th>
+        <td mat-cell *matCellDef="let element"> {{element.year_of_publishment}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="edition">
+        <th mat-header-cell *matHeaderCellDef> Edition </th>
+        <td mat-cell *matCellDef="let element" (click)="edit_book(element)">
+            <mat-icon color="blue">edit</mat-icon>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef> Delete </th>
+        <td mat-cell *matCellDef="let element" (click)="delete_book(element)">
+            <mat-icon color="red">delete</mat-icon>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>

@@ -1,0 +1,8 @@
+<!--to samo co w dialog-adding-a-book.component.html-->
+<div mat-dialog-content>
+  <h1 mat-dialog-title style="text-align: center;">Delete this book?</h1>
+</div>
+<div mat-dialog-actions style="text-align: center; float: right;">
+  <button mat-button [mat-dialog-close]="data" (click)="delete()" style="background-color: green; color: white" cdkFocusInitial>Delete</button>
+  <button mat-button (click)="closeDialog()" style="background-color: red; color: white">Close</button>
+</div>
