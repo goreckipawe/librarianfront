@@ -87,8 +87,14 @@ export class DialogEditingABookComponent implements OnInit {
   saveChanges(): void {
     this.data["element"]["title"] = this.title;//aktualizuje własciwości obiektu wydało mi się to szybsze i raczej nie wpływające na tak mały projekt 
     this.data["element"]["description"] = this.description;
-    this.data["element"]["date_of_creation"] = this.date_of_creation_temp;
-    this.data["element"]["year_of_publishment"] = this.date_of_creation_year;
+
+    if(this.date_of_creation_temp != undefined){
+      this.data["element"]["date_of_creation"] = this.date_of_creation_temp;
+    }
+    if(this.date_of_creation_year != undefined){
+      this.data["element"]["year_of_publishment"] = this.date_of_creation_year;
+    }
+    
     this.data["element"]["categories"] = this.categories;
     
     this.dialogRef.close({ event: 'save', data: this.data });
