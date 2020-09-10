@@ -100,6 +100,12 @@ export class HomeComponent implements OnInit {
       if(result["event"] == "delete") {
         let index: number = this.books.indexOf(element);
         this.books = [...this.books.slice(0, index), ...this.books.slice(index + 1)];//usuwam element z listy
+        this.booksOperationsService.deleteBook(result["data"]).subscribe(data => {
+          console.log("success");
+        },
+        error => {
+          console.error(error);
+        });
       } else if(result["event"] == "close"){
         console.log("close");
       }
